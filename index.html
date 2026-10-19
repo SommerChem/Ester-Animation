@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Mechanismus der Fischer-Veresterung</title>
+<style>
+:root{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202c39;background:#f2f5f7;font-synthesis:none;--blue:#185bc5;--line:#dce3e9}*{box-sizing:border-box}body{margin:0}main{max-width:1260px;margin:auto;padding:28px 32px}header{display:flex;justify-content:space-between;gap:24px;align-items:center}.eyebrow{font-size:12px;letter-spacing:.16em;font-weight:750;color:#607387;text-transform:uppercase}h1{font-size:clamp(23px,3vw,34px);letter-spacing:-.035em;margin:8px 0 10px;font-weight:700}.reaction{margin:0;color:#506174;font-size:17px;line-height:1.6}.mode{display:flex;gap:4px;padding:5px;background:#e5ebf0;border-radius:12px;flex-shrink:0}button,select{font:inherit;font-size:14px;min-height:44px;border:1px solid #ccd6df;background:white;color:#263748;border-radius:8px;padding:10px 15px;cursor:pointer}button:hover{background:#edf3fb}button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #6399ea;outline-offset:3px}button:disabled{opacity:.4;cursor:default}.mode button{border:0;background:transparent}.mode button[aria-pressed=true]{background:white;box-shadow:0 2px 5px #172b4612;color:var(--blue)}.workspace{background:white;border:1px solid var(--line);border-radius:16px;margin-top:24px;overflow:hidden;box-shadow:0 8px 26px #16294105}.stagebar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:16px 22px;border-bottom:1px solid var(--line);font-size:13px;color:#607387}.phases{display:flex;gap:10px;flex-wrap:wrap}.phases button{font-size:13px;min-height:44px;padding:6px 8px;border:0;background:transparent;color:#607387}.phases button:hover{background:#edf3fb}.phases button.active{color:var(--blue);font-weight:750}.canvas-scroll{overflow-x:auto}.scene{display:block;width:100%;min-width:700px;height:auto;max-height:560px;background:#fff}.scene text{font-family:Arial,sans-serif}.scene .atom{font-size:29px;text-anchor:middle;dominant-baseline:central;fill:#27313d}.scene .oxygen{fill:#bf303b}.scene .identity{font-size:13px;fill:#647487;font-weight:bold}.scene .charge{font-size:24px;font-weight:bold;fill:#bf303b}.scene .caption{font-size:16px;fill:#66788a}.legend{display:flex;flex-wrap:wrap;gap:10px 23px;font-size:12px;color:#586b7e;padding:0 22px 16px}.legend b{font-size:14px}.legend .electron{color:var(--blue)}.legend .new{color:#198154}.legend .lost{color:#bb6421}.info{border-top:1px solid var(--line);padding:20px 24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;min-height:137px}.stepnum{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#65788b;font-weight:700}h2{font-size:23px;letter-spacing:-.02em;margin:5px 0 7px}.explanation{max-width:850px;margin:0;font-size:15px;line-height:1.55;color:#4b6074}.primary{background:var(--blue);color:white;border-color:var(--blue)}.primary:hover{background:#114a9f}.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:18px 0}.steps button{text-align:left;padding:10px 12px;border-color:var(--line);font-size:12px;line-height:1.4}.steps strong{display:block;font-size:17px;margin-bottom:4px}.steps button[aria-current=step]{border-color:var(--blue);background:#eaf1fc;color:#174e9f}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.buttons,.settings{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.settings{font-size:13px}.notes{margin-top:22px;font-size:13px;color:#617184;line-height:1.65}.notes p{margin:7px 0}details{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}summary{cursor:pointer;color:#334d66;font-weight:650}details ol{padding-left:22px}#question{display:none}#question.visible{display:block}.question-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 22px;margin:12px 0 0;padding-left:22px;font-size:14px;line-height:1.55}.hint{font-size:12px;color:#6c7d8d;margin-top:8px}.progress-track{height:3px;background:#e9eef3}.progress-fill{height:100%;background:var(--blue);width:0}body.board main{max-width:1600px}body.board .notes{display:none}body.board .scene{max-height:66vh}body.board .explanation{font-size:18px}body.board h2{font-size:27px}@media(max-width:850px){main{padding:20px 16px}header{align-items:flex-start;flex-direction:column;gap:16px}.workspace{margin-top:18px}.steps button{font-size:11px;padding:8px}.info{padding:16px}.stagebar{padding:13px 16px}.question-grid{grid-template-columns:1fr 1fr}.legend{padding-left:16px}.phases{gap:10px}}@media(max-width:540px){main{padding:16px 10px}.steps{grid-template-columns:repeat(3,1fr)}.info{grid-template-columns:1fr}.phases{font-size:11px}.question-grid{grid-template-columns:1fr}.reaction{font-size:15px}.stagebar{gap:8px}.hint.mobile{display:block}}@media print{.toolbar,.mode,.steps,#reveal,.progress-track{display:none}main{padding:0}.workspace{box-shadow:none}.notes{font-size:11px}}
+</style></head>
+<body><main>
+<header><div><div class="eyebrow">Chemie · Leistungsfach · Reaktionsmechanismen</div><h1>Mechanismus der Fischer-Veresterung</h1><p class="reaction">Ethansäure + Ethanol ⇌ Ethansäureethylester + Wasser</p></div><div class="mode" aria-label="Arbeitsmodus"><button id="learn" aria-pressed="true">Lernmodus</button><button id="practice" aria-pressed="false">Übungsmodus</button></div></header>
+<section class="workspace" aria-label="Interaktive Reaktionsdarstellung">
+<div class="stagebar"><div class="phases"><button id="phaseA">A · Ausgangszustand</button><button id="phaseB">B · Elektronenpaare</button><button id="phaseC">C · Bindungsänderung</button></div><span id="status" role="status" aria-live="polite">Bereit</span></div>
+<div class="canvas-scroll"><svg class="scene" id="scene" viewBox="130 45 840 490" role="img" aria-labelledby="sceneTitle sceneDesc"><title id="sceneTitle">Strukturformeln zur Fischer-Veresterung</title><desc id="sceneDesc"></desc><defs><marker id="arrowhead" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#185bc5"/></marker></defs><g id="bonds"></g><g id="atoms"></g><g id="electrons"></g><g id="arrows"></g><g id="resonance"></g></svg></div>
+<div class="legend"><span><b>Oₐ</b> ursprüngliches Carbonyl-O</span><span><b>Oᵦ</b> ursprüngliches Hydroxy-O</span><span><b>O꜀</b> Ethanol-O</span><span class="electron">↷ Elektronenpaar</span><span class="new">＋ Bindung entsteht</span><span class="lost">− Bindung wird gespalten</span></div>
+<div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+<div class="info"><div><div class="stepnum" id="stepnum"></div><h2 id="heading"></h2><p class="explanation" id="explanation"></p><div id="question"><ol class="question-grid"><li>Welcher Reaktionstyp liegt vor?</li><li>Wo beginnen die Elektronenpfeile?</li><li>Wohin werden Elektronen verschoben?</li><li>Welche Bindungen entstehen?</li><li>Welche Bindungen werden gespalten?</li><li>Welche Zwischenstufe entsteht?</li></ol></div></div><button id="reveal" class="primary" hidden>Lösung anzeigen</button></div>
+</section>
+<nav class="steps" id="steps" aria-label="Reaktionsschritt auswählen"></nav>
+<div class="toolbar"><div class="buttons"><button id="previous" aria-label="Vorheriger Schritt">← Zurück</button><button id="play" class="primary">Animation starten</button><button id="pause" disabled>Pause</button><button id="next" aria-label="Nächster Schritt">Weiter →</button><button id="repeat">Schritt wiederholen</button><button id="reset">Neu starten</button></div><div class="settings"><button id="auto">Alle abspielen</button><label for="speed">Tempo</label><select id="speed"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option><option value="2">2×</option></select><button id="board" aria-pressed="false">Tafelansicht</button></div></div>
+<div class="notes"><p><strong>Modellhinweis:</strong> H⁺ steht hier vereinfacht für die Aufnahme oder Abgabe eines Protons in saurer Lösung. In der Lösung sind Protonen an andere Teilchen gebunden. Die Pfeile zeigen, wohin sich Elektronenpaare verschieben. Erst danach zeigt die Animation die veränderten Bindungen, damit du beide Vorgänge gut nachvollziehen kannst.</p><p>Die Reaktion kann auch in umgekehrter Richtung ablaufen. Hier siehst du die Bildung des Esters. Die Strukturformeln zeigen, welche Atome miteinander verbunden sind, nicht ihre räumliche Anordnung. Die Buchstaben a, b und c helfen dir, die Sauerstoffatome wiederzuerkennen. Der Säurekatalysator beschleunigt die Einstellung des Gleichgewichts, verändert aber dessen Lage nicht.</p><details><summary>Bedienung und Unterrichtsimpulse</summary><ol><li>Schritt wählen und „Animation starten“ drücken. Im Lernmodus stoppt die Animation nach jedem Schritt. „Alle abspielen“ beginnt bei Schritt 1 und endet nach Schritt 6.</li><li>„Pause“ hält jede Phase an; „Fortsetzen“ setzt an derselben Stelle fort. „Schritt wiederholen“ zeigt denselben Schritt erneut. Über A, B und C oberhalb der Zeichenfläche lassen sich Ausgangszustand, vollständige Elektronenpfeile und Ergebnis auch als Standbilder betrachten. Ein Schrittwechsel setzt die Darstellung auf dessen Ausgangszustand zurück.</li><li>Im Übungsmodus zuerst die Struktur und Elektronenpfeile auf Papier vorhersagen. „Lösung anzeigen“ spielt die Auflösung ab. Automatische Wiedergabe ist nur im Lernmodus verfügbar.</li><li>Auf kleinen Bildschirmen kann die Zeichenfläche seitlich verschoben werden. Für das Smartboard die Tafelansicht und bei Bedarf den Vollbildmodus des Browsers nutzen.</li></ol><p><strong>Vertiefen:</strong> Erläutere die Herkunft des Ester-Sauerstoffatoms. Begründe, warum die Protonierung die Wasserabspaltung erleichtert. Zeichne den Mechanismus anschließend ohne Vorlage. Diskutiere, welche Aussagen über Lösungsmittel, räumliche Struktur und Reaktionsgeschwindigkeit dieses Modell nicht erlaubt.</p><p><strong>Lehrplanbezug:</strong> Baden-Württemberg, Leistungsfach 3.4.2 (3); KMK: Reaktionstypen (S 4), Donator-Akzeptor-Prinzip und Umkehrbarkeit (S 7), Katalyse (S 8), Bindungsumbau (S 12), Mechanismen (S 14), Modellgrenzen (E 9).</p></details></div>
+</main>
+<script>
+'use strict';
+// Stable atom IDs and one central carbon position preserve molecular continuity.
+const $=id=>document.getElementById(id), NS='http://www.w3.org/2000/svg';
+const titles=['Protonierung','Nukleophile Addition','Deprotonierung','Protonierung','Eliminierung','Deprotonierung'];
+const explanations=[
+'Das Sauerstoffatom der Carbonylgruppe bindet H⁺. Die zusätzliche mesomere Grenzformel mit C⁺ zeigt: Dieses C-Atom ist ein elektrophiles Zentrum und kann ein Elektronenpaar des Ethanols aufnehmen. Beide Grenzformeln beschreiben dasselbe Teilchen.',
+'Das Sauerstoffatom des Ethanols bildet mit einem freien Elektronenpaar eine neue Bindung zum Carbonyl-Kohlenstoffatom. Gleichzeitig geht ein Elektronenpaar der C=O-Doppelbindung zum Sauerstoffatom: Aus der Doppelbindung wird eine Einfachbindung.',
+'Das neu gebundene Ethanol-O gibt H⁺ ab. Das Elektronenpaar der O–H-Bindung bleibt am Sauerstoffatom. Die Zwischenstufe ist nun ungeladen.',
+'Das Sauerstoffatom Oᵦ der ursprünglichen Hydroxygruppe bindet H⁺. Es trägt jetzt zwei Wasserstoffatome. So kann im nächsten Schritt Wasser abgespalten werden.',
+'Ein freies Elektronenpaar an Oₐ bildet die C=O-Doppelbindung zurück. Gleichzeitig wird die Bindung zwischen C und Oᵦ gespalten; ihr Elektronenpaar bleibt an Oᵦ. Ein Wassermolekül löst sich ab.',
+'Oₐ gibt H⁺ ab. Das Elektronenpaar der O–H-Bindung bleibt an Oₐ. Der ungeladene Ester entsteht. H⁺ steht wieder für die Katalyse zur Verfügung.'
+];
+const stateNames=['Ethansäure und Ethanol','Protonierte Ethansäure und Ethanol','Positiv geladene Zwischenstufe','Ungeladene Zwischenstufe','Zwischenstufe nach Aufnahme von H⁺ an Oᵦ','Protonierter Ester und Wasser','Ethansäureethylester und Wasser'];
+const DUR=9600, AEND=2000, BEND=5200, CHANGEEND=7600, MOVEEND=8800;
+const clamp=x=>Math.max(0,Math.min(1,x)), smooth=x=>{x=clamp(x);return x*x*(3-2*x)}, mix=(a,b,t)=>a+(b-a)*t;
+let step=0,elapsed=0,running=false,automatic=false,practice=false,revealed=false,last=0,raf=0,speed=1;
+function model(n){
+ const atoms={}; const bonds={};
+ const atom=(id,el,x,y,charge=0,lp=[])=>atoms[id]={id,el,x,y,charge,lp,opacity:1};
+ const bond=(id,a,b,order=1)=>bonds[id]={id,a,b,order};
+ atom('c','C',380,270);atom('m','C',265,270);atom('mh1','H',205,270);atom('mh2','H',265,205);atom('mh3','H',265,335);
+ bond('cm','c','m');['mh1','mh2','mh3'].forEach(h=>bond(h,'m',h));
+ atom('oa','O',380,155,n===1||n===5?1:0,n===1||n===5?['left']:['left','top']);
+ const water=n>=5; atom('ob','O',water?650:495,water?175:270,n===4?1:0,n===4?['bottom']:water?['bottom','left']:['top','bottom']);
+ atom('bh','H',water?710:555,water?175:270);bond('bh','ob','bh');
+ const ex=n<2?620:380,ey=n<2?420:395;
+ atom('oe','O',ex,ey,n===2?1:0,n===2?['bottomLeft']:['left','bottomLeft']);
+ atom('e1','C',ex+115,ey);atom('e2','C',ex+225,ey);
+ atom('e1h1','H',ex+115,ey-62);atom('e1h2','H',ex+115,ey+62);
+ atom('e2h1','H',ex+225,ey-62);atom('e2h2','H',ex+225,ey+62);atom('e2h3','H',ex+285,ey);
+ bond('oe-e1','oe','e1');bond('e1-e2','e1','e2');['e1h1','e1h2'].forEach(h=>bond(h,'e1',h));['e2h1','e2h2','e2h3'].forEach(h=>bond(h,'e2',h));
+ bond('ca','c','oa',n<=1||n>=5?2:1);if(n<5)bond('cb','c','ob');if(n>=2)bond('ce','c','oe');
+ // hA is the formal catalyst proton; hE leaves ethanol and hB enters the leaving group.
+ atom('ha','H',n===0?475:n===6?510:455,n===0?85:n===6?85:155,n===0||n===6?1:0);
+ if(n>=1&&n<=5)bond('ah','oa','ha');
+ atom('he','H',ex,ey+76,n>=3?1:0);if(n<=2)bond('eh','oe','he');else{atoms.he.x=300;atoms.he.y=495;atoms.he.opacity=0;}
+ atom('hb','H',n>=5?650:n===4?495:570,n>=5?105:n===4?200:180,n<4?1:0);if(n>=4)bond('bh2','ob','hb');else atoms.hb.opacity=0;
+ return {atoms,bonds};
+}
+const states=Array.from({length:7},(_,i)=>model(i));
+function starting(s,t){
+ const st=structuredClone(states[s]);
+ if(s===1){const v=smooth(t/1450);for(const id of ['oe','e1','e2','e1h1','e1h2','e2h1','e2h2','e2h3','he']){st.atoms[id].x-=190*v;st.atoms[id].y-=10*v;}}
+ if(s===3){st.atoms.hb.opacity=1;}
+ return st;
+}
+function pairPosition(a,dir){const dirs={left:[-25,0],top:[0,-25],bottom:[0,25],bottomLeft:[-19,20]};const [dx,dy]=dirs[dir];return [a.x+dx,a.y+dy,dir==='left'?0:1];}
+function arrowPaths(s,st){const a=st.atoms;
+ switch(s){
+ case 0:return [{source:'oa:top',target:'ha',d:'M380 130 C387 75 438 56 462 82'}];
+ case 1:return [{source:'oe:left',target:'c',d:`M${a.oe.x-25} ${a.oe.y} C320 438 306 324 367 281`},{source:'ca:pi',target:'oa',d:'M387 210 C443 217 445 170 397 159'}];
+ case 2:return [{source:'eh',target:'oe',d:'M380 433 C321 447 324 396 364 395'}];
+ case 3:return [{source:'ob:top',target:'hb',d:'M495 245 C485 194 525 164 556 179'}];
+ case 4:return [{source:'oa:left',target:'ca:pi',d:'M355 155 C309 155 321 213 373 212'},{source:'cb',target:'ob',d:'M437 270 C427 310 467 318 480 280'}];
+ case 5:return [{source:'ah',target:'oa',d:'M418 155 C426 99 376 100 380 138'}];
+ }
+}
+function svg(tag,attrs,parent){const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);parent.append(e);return e;}
+function textAt(parent,x,y,text,cls,opacity=1){const e=svg('text',{x,y,class:cls,opacity},parent);e.textContent=text;return e;}
+function positions(from,to,t){const out={};for(const id in from.atoms){const a=from.atoms[id],b=to.atoms[id];out[id]={...a,x:mix(a.x,b.x,t),y:mix(a.y,b.y,t),opacity:mix(a.opacity,b.opacity,t)};}return out;}
+function drawBond(b,atoms,opacity,color='#27313d',offset=0,progress=1){if(opacity<=0)return;if(elapsed>=AEND&&elapsed<BEND&&arrowPaths(step,starting(step,elapsed)).some(ar=>ar.source===(offset?b.id+':pi':b.id)))color='#185bc5';const a=atoms[b.a],z=atoms[b.b],dx=z.x-a.x,dy=z.y-a.y,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len,pad=19,x=a.x+ux*pad-uy*offset,y=a.y+uy*pad+ux*offset,xx=z.x-ux*pad-uy*offset,yy=z.y-uy*pad+ux*offset;svg('line',{x1:x,y1:y,x2:mix(x,xx,progress),y2:mix(y,yy,progress),stroke:color,'stroke-width':2.8,'stroke-linecap':'round',opacity,'data-bond':b.id},$('bonds'));}
+function drawPairs(a,alpha){for(const d of a.lp){const [x,y,horizontal]=pairPosition(a,d);for(const k of [-4,4])svg('circle',{cx:x+(horizontal?k:0),cy:y+(horizontal?0:k),r:2.6,fill:elapsed>=AEND&&elapsed<BEND&&arrowPaths(step,starting(step,elapsed)).some(ar=>ar.source===a.id+':'+d)?'#185bc5':'#bf303b',opacity:alpha,'data-pair':a.id+':'+d},$('electrons'));}}
+// Separate resonance contributor: same nuclei, three bonds at C+, two lone pairs per O.
+// It appears only after protonation is complete, and never joins the reaction animation.
+function drawResonance(){
+ const group=$('resonance');group.replaceChildren();
+ if(step!==0||elapsed<CHANGEEND||(practice&&!revealed))return;
+ group.setAttribute('role','group');group.setAttribute('aria-label','Mesomere Grenzformel der protonierten Ethansäure: positive Ladung am zentralen Kohlenstoffatom, beide Sauerstoffatome ungeladen. Keine zusätzliche Zwischenstufe.');
+ textAt(group,620,77,'Mesomere Grenzformel','caption').setAttribute('font-weight','700');
+ textAt(group,620,100,'derselben protonierten Säure','caption');
+ const a={m:[685,220,'C'],c:[760,220,'C'],oa:[760,145,'O'],ob:[845,220,'O'],h1:[630,220,'H'],h2:[685,160,'H'],h3:[685,280,'H'],ha:[820,145,'H'],hb:[905,220,'H']};
+ for(const [i,j] of [['m','c'],['m','h1'],['m','h2'],['m','h3'],['c','oa'],['c','ob'],['oa','ha'],['ob','hb']]){
+  const p=a[i],q=a[j],dx=q[0]-p[0],dy=q[1]-p[1],l=Math.hypot(dx,dy),ux=dx/l,uy=dy/l;
+  svg('line',{x1:p[0]+ux*18,y1:p[1]+uy*18,x2:q[0]-ux*18,y2:q[1]-uy*18,stroke:'#27313d','stroke-width':2.5},group);
+ }
+ for(const [id,[x,y,el]] of Object.entries(a)){
+  textAt(group,x,y,el,'atom'+(el==='O'?' oxygen':''));
+  if(el==='O'){
+   textAt(group,x+(id==='oa'?-16:13),y+17,id==='oa'?'a':'b','identity');
+   for(const dir of (id==='oa'?['left','top']:['top','bottom'])){
+    const [px,py,h]=pairPosition({x,y},dir);for(const k of [-4,4])svg('circle',{cx:px+(h?k:0),cy:py+(h?0:k),r:2.6,fill:'#bf303b'},group);
+   }
+  }
+ }
+ textAt(group,778,201,'+','charge').setAttribute('fill','#185bc5');
+ textAt(group,578,223,'↔','caption').setAttribute('style','font-size:34px;fill:#506174');
+ textAt(group,620,318,'C⁺: elektrophiles Zentrum','caption').setAttribute('style','font-size:17px;fill:#185bc5;font-weight:600');
+ textAt(group,620,340,'Keine zusätzliche Zwischenstufe','caption');
+}
+function render(){
+ const from=starting(step,elapsed),to=states[step+1],isC=elapsed>=BEND;
+ const change=isC?smooth((elapsed-BEND)/(CHANGEEND-BEND)):0,move=smooth((elapsed-CHANGEEND)/(MOVEEND-CHANGEEND));
+ // Attached atoms move continuously. Departing fragments move only after bond cleavage.
+ const p=positions(from,to,step===4?move:change);
+ if(step===2){p.he={...from.atoms.he,x:mix(380,300,move),y:mix(471,495,move),opacity:1-move};}
+ if(step===5){p.ha={...from.atoms.ha,x:mix(455,510,move),y:mix(155,85,move),opacity:1};}
+ if(step===3)p.hb.opacity=1;
+ for(const id of ['bonds','atoms','electrons','arrows'])$(id).replaceChildren();
+ const ids=new Set([...Object.keys(from.bonds),...Object.keys(to.bonds)]);
+ for(const id of ids){const b=from.bonds[id],z=to.bonds[id];
+  if(b&&z){drawBond(b,p,1);if(b.order===2&&z.order===2)drawBond(b,p,1,undefined,8);else if(b.order===2)drawBond(b,p,1-change,isC?'#bb6421':'#27313d',8);else if(z.order===2&&change>0)drawBond(z,p,1,change<1?'#198154':'#27313d',8,change);}
+  else if(b)drawBond(b,p,1-change,isC?'#bb6421':'#27313d');
+  else if(change>0)drawBond(z,p,1,change<1?'#198154':'#27313d',0,change);
+ }
+ // Formal charge and lone-pair changes switch together at completion of bond reorganisation.
+ const electronic=change<1?from:to;
+ for(const id in p){const a=p[id],e=electronic.atoms[id];if(a.opacity<.001)continue;
+  textAt($('atoms'),a.x,a.y,a.el,'atom'+(a.el==='O'?' oxygen':''),a.opacity);
+  if(a.el==='O'){textAt($('atoms'),a.x+(id==='oa'?-16:13),a.y+17,{oa:'a',ob:'b',oe:'c'}[id],'identity',a.opacity);drawPairs({...a,lp:e.lp},a.opacity);}
+  if(e.charge)textAt($('atoms'),a.x+18,a.y-19,'+','charge',a.opacity);
+ }
+ if(elapsed>=AEND&&elapsed<BEND){const q=clamp((elapsed-AEND)/1800);for(const ar of arrowPaths(step,from)){const path=svg('path',{d:ar.d,fill:'none',stroke:'#185bc5','stroke-width':3.3,'stroke-linecap':'round','data-source':ar.source,'data-target':ar.target},$('arrows'));const len=path.getTotalLength();path.setAttribute('stroke-dasharray',len);path.setAttribute('stroke-dashoffset',len*(1-q));if(q>=1)path.setAttribute('marker-end','url(#arrowhead)');else if(q>0){const v=path.getPointAtLength(len*q),u=path.getPointAtLength(Math.max(0,len*q-1));svg('path',{d:'M-10 -5 L0 0 L-10 5 Z',fill:'#185bc5',transform:`translate(${v.x},${v.y}) rotate(${Math.atan2(v.y-u.y,v.x-u.x)*180/Math.PI})`},$('arrows'));}}}
+ const phase=elapsed<AEND?'A':elapsed<BEND?'B':'C';for(const ph of ['A','B','C']){$('phase'+ph).classList.toggle('active',ph===phase);$('phase'+ph).setAttribute('aria-pressed',ph===phase);}
+ drawResonance();
+ $('progress').style.width=(elapsed/DUR*100)+'%';
+ $('sceneDesc').textContent=`Schritt ${step+1}, Phase ${phase}: ${stateNames[step+(elapsed>=CHANGEEND?1:0)]}. ${practice&&!revealed?'Sage den nächsten Reaktionsschritt voraus.':explanations[step]}`;
+}
+function ui(){
+ const hidden=practice&&!revealed;
+ $('heading').textContent=hidden?'Den nächsten Schritt vorhersagen':titles[step];$('explanation').textContent=hidden?'Betrachte die Ausgangsstruktur. Skizziere deine Lösung, bevor du sie aufdeckst.':explanations[step];$('stepnum').textContent=`Schritt ${step+1} von 6`;
+ $('phaseB').disabled=hidden;$('phaseC').disabled=hidden;$('question').classList.toggle('visible',hidden);$('reveal').hidden=!hidden;
+ $('play').disabled=hidden||running;$('play').textContent=elapsed===0?'Animation starten':elapsed>=DUR?'Erneut abspielen':'Fortsetzen';$('pause').disabled=!running;
+ $('previous').disabled=step===0;$('next').disabled=step===5;$('auto').disabled=practice;$('repeat').disabled=hidden;
+ $('learn').setAttribute('aria-pressed',!practice);$('practice').setAttribute('aria-pressed',practice);
+ document.querySelectorAll('#steps button').forEach((b,i)=>{b.setAttribute('aria-current',i===step?'step':'false');b.innerHTML=`<strong>${i+1}</strong>${practice?'Schritt '+(i+1):titles[i]}`;});
+ $('status').textContent=running?(automatic?'Automatische Wiedergabe':'Animation läuft'):elapsed>=DUR?(step===5?'Mechanismus abgeschlossen':'Schritt abgeschlossen'):elapsed>0?'Pausiert':'Bereit';
+}
+function stop(){running=false;cancelAnimationFrame(raf);raf=0;last=0;}
+function selectStep(i,autostart=false){stop();step=Math.max(0,Math.min(5,i));elapsed=0;revealed=false;if(!autostart)automatic=false;render();ui();if(autostart)play();}
+function tick(now){if(!running)return;if(last)elapsed=Math.min(DUR,elapsed+(now-last)*speed);last=now;render();if(elapsed>=DUR){stop();if(automatic&&step<5){selectStep(step+1,true);return;}automatic=false;ui();return;}raf=requestAnimationFrame(tick);}
+function play(){if(practice&&!revealed)return;if(running)return;if(elapsed>=DUR)elapsed=0;running=true;last=0;ui();raf=requestAnimationFrame(tick);}
+function setMode(value){stop();practice=value;automatic=false;selectStep(step);}
+for(let i=0;i<6;i++){const b=document.createElement('button');b.type='button';b.addEventListener('click',()=>selectStep(i));$('steps').append(b);}
+$('previous').onclick=()=>selectStep(step-1);$('next').onclick=()=>selectStep(step+1);$('play').onclick=play;$('pause').onclick=()=>{stop();ui();};$('repeat').onclick=()=>{stop();elapsed=0;automatic=false;render();play();};$('reset').onclick=()=>selectStep(0);$('auto').onclick=()=>{automatic=true;selectStep(0,true);};$('learn').onclick=()=>setMode(false);$('practice').onclick=()=>setMode(true);$('reveal').onclick=()=>{revealed=true;ui();play();};$('speed').onchange=e=>speed=Number(e.target.value);$('board').onclick=()=>{$('board').setAttribute('aria-pressed',document.body.classList.toggle('board'));};
+for(const [ph,t] of [['A',0],['B',4100],['C',9600]])$('phase'+ph).onclick=()=>{if(practice&&!revealed&&ph!=='A')return;stop();automatic=false;elapsed=t;render();ui();};
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&running){stop();ui();}});
+// Read-only structured chemistry plus deterministic seeking support reproducible QA.
+window.fischerQA={states,arrowPaths,seek(s,t){selectStep(s);elapsed=clamp(t/DUR)*DUR;render();ui();},snapshot(){return{step,elapsed,running,automatic,practice,revealed,speed};}};
+selectStep(0);
+</script></body></html>
